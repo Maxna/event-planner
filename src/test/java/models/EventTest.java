@@ -18,4 +18,11 @@ public class EventTest {
         testEvent.setPrice("100");
         assertEquals("100", testEvent.getPrice());
     }
+
+    @Test
+    public void setPersons_addNumberOfPersons_10() throws Exception {
+        Event testEvent = new Event();
+        testEvent.setPersons("10");
+        assertEquals("10", testEvent.getPersons());
+    }
 }

@@ -7,6 +7,11 @@ import java.util.List;
 public class Event {
 
     private String price;
+    private String persons;
+    private String meals;
+    private String drinks;
+    private String shows;
+
     private ArrayList<String> coupons;
 
     public Event() {
@@ -19,6 +24,14 @@ public class Event {
 
     public String getPrice() {
         return price;
+    }
+
+    public void setPersons(String people) {
+        this.persons = people;
+    }
+
+    public String getPersons() {
+        return persons;
     }
 
 }
