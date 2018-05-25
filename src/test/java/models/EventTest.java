@@ -32,4 +32,18 @@ public class EventTest {
         testEvent.setMeals("snacks");
         assertEquals("snacks", testEvent.getMeals());
     }
+
+    @Test
+    public void setDrinks_addTypeOfDrink_beer() throws Exception {
+        Event testEvent = new Event();
+        testEvent.setDrinks("beer");
+        assertEquals("beer", testEvent.getDrinks());
+    }
+
+    @Test
+    public void setShows_addTypeOfShow_dj() throws Exception {
+        Event testEvent = new Event();
+        testEvent.setShows("dj");
+        assertEquals("dj", testEvent.getShows());
+    }
 }

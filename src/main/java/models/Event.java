@@ -42,4 +42,20 @@ public class Event {
         return meals;
     }
 
+    public void setDrinks(String beverage) {
+        this.drinks = beverage;
+    }
+
+    public String getDrinks() {
+        return drinks;
+    }
+
+    public void setShows(String music) {
+        this.shows = music;
+    }
+
+    public String getShows() {
+        return shows;
+    }
+
 }
