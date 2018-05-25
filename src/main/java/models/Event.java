@@ -1,36 +1,23 @@
 package models;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Event {
 
-    private Integer price;
-    private String persons;
+    private int persons;
     private String meals;
     private String drinks;
     private String shows;
+    private int price;
 
-    private ArrayList<String> coupon;
 
     public Event() {
-        this.coupon = new ArrayList<String>();
+
     }
 
-    public void setPrice(Integer total) {
-        this.price = total;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPersons(String people) {
+    public void setPersons(int people) {
         this.persons = people;
     }
 
-    public String getPersons() {
+    public int getPersons() {
         return persons;
     }
 
@@ -58,14 +45,13 @@ public class Event {
         return shows;
     }
 
-    public void setCoupon(String deal, String offer) {
-        if (coupon.contains(deal)) {
-            this.coupon.add(deal);
-        } else if (coupon.contains(offer)) {
-            this.coupon.add(offer);
-        }
+    public void setPrice(int total) {
+        this.price = total;
     }
 
+    public int getPrice() {
+        return price;
+    }
 
 
 }

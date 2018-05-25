@@ -13,45 +13,39 @@ public class EventTest {
     }
 
     @Test
-    public void setPrice_setPriceCorrectly_100() throws Exception {
-        Event testEvent = new Event();
-        testEvent.setPrice(100);
-        assertEquals(100, testEvent.getPrice(), 0);
-    }
-
-    @Test
     public void setPersons_addNumberOfPersons_10() throws Exception {
         Event testEvent = new Event();
-        testEvent.setPersons("10");
-        assertEquals("10", testEvent.getPersons());
+        testEvent.setPersons(10);
+        assertEquals(10, testEvent.getPersons(), 0);
     }
 
     @Test
-    public void setMeals_addTypeOfMeal_snacks() throws Exception {
+    public void setMeals_addTypeOfMeal_steak() throws Exception {
         Event testEvent = new Event();
-        testEvent.setMeals("snacks");
-        assertEquals("snacks", testEvent.getMeals());
+        testEvent.setMeals("steak");
+        assertEquals("steak", testEvent.getMeals());
     }
 
     @Test
     public void setDrinks_addTypeOfDrink_beer() throws Exception {
         Event testEvent = new Event();
-        testEvent.setDrinks("beer");
-        assertEquals("beer", testEvent.getDrinks());
+        testEvent.setDrinks("10");
+        assertEquals("10", testEvent.getDrinks());
     }
 
     @Test
     public void setShows_addTypeOfShow_dj() throws Exception {
         Event testEvent = new Event();
-        testEvent.setShows("dj");
-        assertEquals("dj", testEvent.getShows());
+        testEvent.setShows("10");
+        assertEquals("10", testEvent.getShows());
     }
 
-//    @Test
-//    public void setCoupon_addTypeOfCoupon_50() throws Exception{
-//        Event testEvent = new Event();
-//        testEvent.setPrice(100);
-//        testEvent.setCoupon("deal");
-//        assertEquals(50, testEvent.getPrice());
-//    }
+    @Test
+    public void getPrice_getPriceCorrectly_40() throws Exception {
+        Event testEvent = new Event();
+        testEvent.setPrice(40);
+        assertEquals(40, testEvent.getPrice(), 0);
+    }
+
+
 }
