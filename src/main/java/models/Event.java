@@ -6,23 +6,23 @@ import java.util.List;
 
 public class Event {
 
-    private String price;
+    private Integer price;
     private String persons;
     private String meals;
     private String drinks;
     private String shows;
 
-    private ArrayList<String> coupons;
+    private ArrayList<String> coupon;
 
     public Event() {
-        this.coupons = new ArrayList<String>();
+        this.coupon = new ArrayList<String>();
     }
 
-    public void setPrice(String total) {
+    public void setPrice(Integer total) {
         this.price = total;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
@@ -57,5 +57,15 @@ public class Event {
     public String getShows() {
         return shows;
     }
+
+    public void setCoupon(String deal, String offer) {
+        if (coupon.contains(deal)) {
+            this.coupon.add(deal);
+        } else if (coupon.contains(offer)) {
+            this.coupon.add(offer);
+        }
+    }
+
+
 
 }

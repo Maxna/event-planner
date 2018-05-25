@@ -15,8 +15,8 @@ public class EventTest {
     @Test
     public void setPrice_setPriceCorrectly_100() throws Exception {
         Event testEvent = new Event();
-        testEvent.setPrice("100");
-        assertEquals("100", testEvent.getPrice());
+        testEvent.setPrice(100);
+        assertEquals(100, testEvent.getPrice(), 0);
     }
 
     @Test
@@ -46,4 +46,12 @@ public class EventTest {
         testEvent.setShows("dj");
         assertEquals("dj", testEvent.getShows());
     }
+
+//    @Test
+//    public void setCoupon_addTypeOfCoupon_50() throws Exception{
+//        Event testEvent = new Event();
+//        testEvent.setPrice(100);
+//        testEvent.setCoupon("deal");
+//        assertEquals(50, testEvent.getPrice());
+//    }
 }
