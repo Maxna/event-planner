@@ -34,4 +34,12 @@ public class Event {
         return persons;
     }
 
+    public void setMeals(String food) {
+        this.meals = food;
+    }
+
+    public String getMeals() {
+        return meals;
+    }
+
 }

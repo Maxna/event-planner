@@ -25,4 +25,11 @@ public class EventTest {
         testEvent.setPersons("10");
         assertEquals("10", testEvent.getPersons());
     }
+
+    @Test
+    public void setMeals_addTypeOfMeal_snacks() throws Exception {
+        Event testEvent = new Event();
+        testEvent.setMeals("snacks");
+        assertEquals("snacks", testEvent.getMeals());
+    }
 }
