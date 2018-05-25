@@ -17,4 +17,8 @@ public class Event {
         this.price = total;
     }
 
+    public String getPrice() {
+        return price;
+    }
+
 }
