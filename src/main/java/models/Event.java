@@ -17,17 +17,17 @@ public class Event {
         return (price <= maxPrice);
     }
 
-    public int getTotal() {
-        int total = this.price * 2;
-        return total;
-    }
+//    public int getTotal() {
+//        int total =
+//        return total;
+//    }
 
-    public Event(int person, String meal, String drink, String show, int price) {
+    public Event(int person, String meal, String drink, String show) {
         this.person = person;
         this.meal = meal;
         this.drink = drink;
         this.show = show;
-        this.price = price;
+//        this.price = price;
     }
 
     public int getPerson() {
@@ -46,8 +46,11 @@ public class Event {
         return this.show;
     }
 
-    public int getPrice() {
-        return this.price;
+    public int calculate() {
+
+
+
+        return ;
     }
 }
 
