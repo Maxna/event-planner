@@ -10,10 +10,16 @@ public class Event {
     private String drink;
     private String show;
     private int price;
+    private int total;
 
 
     public boolean budget(int maxPrice){
         return (price <= maxPrice);
+    }
+
+    public int getTotal() {
+        int total = this.price * 2;
+        return total;
     }
 
     public Event(int person, String meal, String drink, String show, int price) {
@@ -25,23 +31,23 @@ public class Event {
     }
 
     public int getPerson() {
-        return person;
+        return this.person;
     }
 
     public String getMeal() {
-        return meal;
+        return this.meal;
     }
 
     public String getDrink() {
-        return drink;
+        return this.drink;
     }
 
     public String getShow() {
-        return show;
+        return this.show;
     }
 
     public int getPrice() {
-        return price;
+        return this.price;
     }
 }
 
