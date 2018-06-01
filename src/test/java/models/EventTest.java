@@ -8,7 +8,7 @@ public class EventTest {
 
     @Test
     public void newEvent_makesCorrectly_true() throws Exception {
-        Event testEvent = new Event(10, "food", "drink", "show");
+        Event testEvent = new Event(10, "Steak", "drink", "show");
         assertEquals(true, testEvent instanceof Event);
     }
 
@@ -20,8 +20,8 @@ public class EventTest {
 
     @Test
     public void getMeal_getTypeOfMeal_food() throws Exception {
-        Event testEvent = new Event(10, "food", "drink", "show");
-        assertEquals("food", testEvent.getMeal());
+        Event testEvent = new Event(10, "Steak", "drink", "show");
+        assertEquals("Steak", testEvent.getMeal());
     }
 
     @Test
@@ -36,15 +36,14 @@ public class EventTest {
         assertEquals("show", testEvent.getShow());
     }
 
-//    @Test
-//    public void getPrice_getPriceCorrectly_100() throws Exception {
-//        Event testEvent = new Event(10, "food", "drink", "show", 100);
-//        assertEquals(100, testEvent.getPrice());
-//    }
+    @Test
+    public void calc_multMealByPersons_20() throws Exception {
+        Event testEvent = new Event(10, "Steak", "drink", "show");
+        testEvent.getPriceOfMeal("Steak");
+        assertEquals(20, testEvent.calcMeal());
+    }
 
-//    @Test
-//    public void totalCost_calculateTotalCorrectly_200() throws Exception {
-//        Event testEvent = new Event(10, "food", "drink", "show");
-//        assertEquals(200, testEvent.getTotal());
-//    }
+    @Test
+    public void calc_multDrinkByPersons_() {
+    }
 }

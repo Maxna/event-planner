@@ -9,149 +9,64 @@ public class Event {
     private String meal;
     private String drink;
     private String show;
-    private int price;
-    private int total;
+    private int calc;
 
 
-    public boolean budget(int maxPrice){
-        return (price <= maxPrice);
-    }
-
-//    public int getTotal() {
-//        int total =
-//        return total;
+//    public boolean budget(int maxPrice){
+//        return (price <= maxPrice);
 //    }
+
 
     public Event(int person, String meal, String drink, String show) {
         this.person = person;
         this.meal = meal;
         this.drink = drink;
         this.show = show;
-//        this.price = price;
     }
 
     public int getPerson() {
+
         return this.person;
     }
 
     public String getMeal() {
+
         return this.meal;
     }
 
     public String getDrink() {
+
         return this.drink;
     }
 
     public String getShow() {
+
         return this.show;
     }
 
-    public int calculate() {
+    public Integer getPriceOfMeal(String meal) {
+
+        int priceOfMeal;
+
+        if (meal.equals("Steak")) {
+            priceOfMeal = 2;
+        } else if (meal.equals("Seafood")) {
+            priceOfMeal = 5;
+        } else {
+            priceOfMeal = 0;
+        }
+
+        return priceOfMeal;
+    }
+
+    public int calcMeal() {
 
 
+        int mealPrice = getPriceOfMeal("Steak");
+        int people = this.person;
+        int calc = (mealPrice)*(people);
 
-        return ;
+
+        return calc;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    public void setPersons(int people) {
-//        this.persons = people;
-//    }
-//
-//    public int getPersons() {
-//        return persons;
-//    }
-//
-//    public List typesOfMeals() {
-//        ArrayList<String> foodItem = new ArrayList<String>() {{
-//            add("steak");
-//            add("seafood");
-//        }};
-//        return foodItem;
-//    }
-//
-//    public void setMeals(String food) {
-//        this.meals = foodItem;
-//        List<String> result = new ArrayList<String>();
-//        if (this.meals.contains(steak)) {
-//            result.add(steak);
-//        } else if (this.meals.contains(seafood)) {
-//            result.add(seafood);
-//        }
-//        return result;
-//    }
-//
-//    public String getMeals() {
-//        return meals;
-//    }
-//
-//    public void setDrinks(String beverage) {
-//        this.drinks = beverage;
-//    }
-//
-//    public String getDrinks() {
-//        return drinks;
-//    }
-//
-//    public void setShows(String music) {
-//        this.shows = music;
-//    }
-//
-//    public String getShows() {
-//        return shows;
-//    }
-//
-//    public void setPrice(int total) {
-//        this.price = total;
-//    }
-//
-//    public int getPrice() {
-//        return price;
-//    }
-

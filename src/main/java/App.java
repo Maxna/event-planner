@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class App {
     public static void main(String[] args) {
 
-        Event event = new Event(10, "fish", "beer", "metallica", 100);
+        Event event = new Event(10, "fish", "beer", "metallica");
 
         ArrayList<Event> allEvents = new ArrayList<Event>();
         allEvents.add(event);
@@ -32,23 +32,23 @@ public class App {
                         System.out.println(individualEvent.getMeal());
                         System.out.println(individualEvent.getDrink());
                         System.out.println(individualEvent.getShow());
-                        System.out.println(individualEvent.getPrice());
+//                        System.out.println(individualEvent.getPrice());
                     }
-                } else if (navigationChoice.equals("Search Price")) {
-                    System.out.println("What is your total budget for this Event?");
-                    String stringUserMaxBudget = bufferedReader.readLine();
-                    int userMaxBudget = Integer.parseInt(stringUserMaxBudget);
-                    System.out.println("Great, here are some options in your price range:");
-                    for (Event individualEvent : allEvents) {
-                        if (individualEvent.budget(userMaxBudget)) {
-                            System.out.println("----------------");
-                            System.out.println(individualEvent.getPerson());
-                            System.out.println(individualEvent.getMeal());
-                            System.out.println(individualEvent.getDrink());
-                            System.out.println(individualEvent.getShow());
-                            System.out.println(individualEvent.getPrice());
-                        }
-                    }
+//                } else if (navigationChoice.equals("Search Price")) {
+//                    System.out.println("What is your total budget for this Event?");
+//                    String stringUserMaxBudget = bufferedReader.readLine();
+//                    int userMaxBudget = Integer.parseInt(stringUserMaxBudget);
+//                    System.out.println("Great, here are some options in your price range:");
+//                    for (Event individualEvent : allEvents) {
+//                        if (individualEvent.budget(userMaxBudget)) {
+//                            System.out.println("----------------");
+//                            System.out.println(individualEvent.getPerson());
+//                            System.out.println(individualEvent.getMeal());
+//                            System.out.println(individualEvent.getDrink());
+//                            System.out.println(individualEvent.getShow());
+////                            System.out.println(individualEvent.getPrice());
+//                        }
+//                    }
                 } else if (navigationChoice.equals("Add Event")) {
                     System.out.println("Great, Let's get started on your Event! First, how many people will be attending?");
                     int userEventPerson = Integer.parseInt(bufferedReader.readLine());
@@ -60,7 +60,7 @@ public class App {
                     String userEventShow = bufferedReader.readLine();
                     System.out.println("Finally, what will it cost?");
                     int userEventPrice = Integer.parseInt(bufferedReader.readLine());
-                    Event userEvent = new Event(userEventPerson, userEventMeal, userEventDrink, userEventShow, userEventPrice);
+                    Event userEvent = new Event(userEventPerson, userEventMeal, userEventDrink, userEventShow);
                     allEvents.add(userEvent);
                     System.out.println("This Event sounds great!");
                     System.out.println("----------------");
@@ -68,7 +68,7 @@ public class App {
                     System.out.println(userEvent.getMeal());
                     System.out.println(userEvent.getDrink());
                     System.out.println(userEvent.getShow());
-                    System.out.println(userEvent.getPrice());
+//                    System.out.println(userEvent.getPrice());
                 } else if (navigationChoice.equals("Exit")){
                     System.out.println("Goodbye!");
                     programRunning = false;
