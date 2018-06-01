@@ -11,29 +11,26 @@ public class Event {
     private String show;
 
 
-    public Event(int person, String meal, String drink, String show) {
-        this.person = person;
-        this.meal = meal;
-        this.drink = drink;
-        this.show = show;
+    public Event() {
+
     }
 
     public int getPerson() {
-
+        this.person = person;
         return this.person;
     }
 
-    public String getMeal() {
+    public String getMeal(String meal) {
 
         return this.meal;
     }
 
-    public String getDrink() {
+    public String getDrink(String drink) {
 
         return this.drink;
     }
 
-    public String getShow() {
+    public String getShow(String show) {
 
         return this.show;
     }
@@ -87,7 +84,7 @@ public class Event {
 
 
         int people = this.person;
-        int mealPrice = getPriceOfMeal("Steak");
+        int mealPrice = getPriceOfMeal("");
 
         int calcMealPrice = ((people)*(mealPrice));
 
@@ -98,7 +95,7 @@ public class Event {
 
 
         int people = this.person;
-        int drinkPrice = getPriceOfDrink("Beer");
+        int drinkPrice = getPriceOfDrink("");
 
         int calcDrinkPrice = ((people)*(drinkPrice));
 
@@ -109,7 +106,7 @@ public class Event {
 
 
         int people = this.person;
-        int showPrice = getPriceOfShow("DJ");
+        int showPrice = getPriceOfShow("");
 
         int calcShowPrice = ((people)*(showPrice));
 
