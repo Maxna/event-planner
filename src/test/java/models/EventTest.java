@@ -44,6 +44,22 @@ public class EventTest {
     }
 
     @Test
-    public void calc_multDrinkByPersons_() {
+    public void calc_multDrinkByPersons_20() throws Exception {
+        Event testEvent = new Event(10, "Steak", "Beer", "show");
+        testEvent.getPriceOfDrink("Beer");
+        assertEquals(20, testEvent.calcDrink());
+    }
+
+    @Test
+    public void calc_multShowByPersons_500() throws Exception {
+        Event testEvent = new Event(10, "Steak", "Beer", "DJ");
+        testEvent.getPriceOfShow("DJ");
+        assertEquals(500, testEvent.calcShow());
+    }
+
+    @Test
+    public void calc_sumOfAllCalcs_540() throws Exception {
+        Event testEvent = new Event(10, "Steak", "Beer", "DJ");
+        assertEquals(540, testEvent.calcAll());
     }
 }

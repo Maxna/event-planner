@@ -9,12 +9,6 @@ public class Event {
     private String meal;
     private String drink;
     private String show;
-    private int calc;
-
-
-//    public boolean budget(int maxPrice){
-//        return (price <= maxPrice);
-//    }
 
 
     public Event(int person, String meal, String drink, String show) {
@@ -59,14 +53,74 @@ public class Event {
         return priceOfMeal;
     }
 
+    public Integer getPriceOfDrink(String drink) {
+
+        int priceOfDrink;
+
+        if (drink.equals("Beer")) {
+            priceOfDrink = 2;
+        } else if (drink.equals("Wine")) {
+            priceOfDrink = 5;
+        } else {
+            priceOfDrink = 0;
+        }
+
+        return priceOfDrink;
+    }
+
+    public Integer getPriceOfShow(String show) {
+
+        int priceOfShow;
+
+        if (show.equals("DJ")) {
+            priceOfShow = 50;
+        } else if (show.equals("Concert")) {
+            priceOfShow = 100;
+        } else {
+            priceOfShow = 0;
+        }
+
+        return priceOfShow;
+    }
+
     public int calcMeal() {
 
 
-        int mealPrice = getPriceOfMeal("Steak");
         int people = this.person;
-        int calc = (mealPrice)*(people);
+        int mealPrice = getPriceOfMeal("Steak");
 
+        int calcMealPrice = ((people)*(mealPrice));
+
+        return calcMealPrice;
+    }
+
+    public int calcDrink() {
+
+
+        int people = this.person;
+        int drinkPrice = getPriceOfDrink("Beer");
+
+        int calcDrinkPrice = ((people)*(drinkPrice));
+
+        return calcDrinkPrice;
+    }
+
+    public int calcShow() {
+
+
+        int people = this.person;
+        int showPrice = getPriceOfShow("DJ");
+
+        int calcShowPrice = ((people)*(showPrice));
+
+        return calcShowPrice;
+    }
+
+    public int calcAll() {
+
+        int calc = (calcShow()+calcDrink()+calcMeal());
 
         return calc;
     }
+
 }
