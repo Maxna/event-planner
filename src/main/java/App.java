@@ -9,9 +9,9 @@ import java.util.ArrayList;
 public class App {
     public static void main(String[] args) {
 
-        Event event = new Event(10, "fish", "beer", "metallica");
+        Event event = new Event(10, "Steak", "Beer", "DJ");
 
-        ArrayList<Event> allEvents = new ArrayList<Event>();
+        List<Event> allEvents = new ArrayList<Event>();
         allEvents.add(event);
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -19,7 +19,7 @@ public class App {
         boolean programRunning = true;
 
         while (programRunning) {
-            System.out.println("Welcome to Java Event Planning. Please select one of the following options: All Events, Search Price, Add Event, or Exit");
+            System.out.println("Welcome to Java Event Planning. Please select one of the following options: All Events, Custom Event, Add Event, or Exit");
 
             try {
 
@@ -32,24 +32,10 @@ public class App {
                         System.out.println(individualEvent.getMeal());
                         System.out.println(individualEvent.getDrink());
                         System.out.println(individualEvent.getShow());
-//                        System.out.println(individualEvent.getPrice());
+                        System.out.println("$" + individualEvent.calcAll());
+                        System.out.println("----------------");
                     }
-//                } else if (navigationChoice.equals("Search Price")) {
-//                    System.out.println("What is your total budget for this Event?");
-//                    String stringUserMaxBudget = bufferedReader.readLine();
-//                    int userMaxBudget = Integer.parseInt(stringUserMaxBudget);
-//                    System.out.println("Great, here are some options in your price range:");
-//                    for (Event individualEvent : allEvents) {
-//                        if (individualEvent.budget(userMaxBudget)) {
-//                            System.out.println("----------------");
-//                            System.out.println(individualEvent.getPerson());
-//                            System.out.println(individualEvent.getMeal());
-//                            System.out.println(individualEvent.getDrink());
-//                            System.out.println(individualEvent.getShow());
-////                            System.out.println(individualEvent.getPrice());
-//                        }
-//                    }
-                } else if (navigationChoice.equals("Add Event")) {
+                } else if (navigationChoice.equals("Custom Event")) {
                     System.out.println("Great, Let's get started on your Event! First, how many people will be attending?");
                     int userEventPerson = Integer.parseInt(bufferedReader.readLine());
                     System.out.println("OK, and what type of food should there be?");
@@ -58,17 +44,43 @@ public class App {
                     String userEventDrink = bufferedReader.readLine();
                     System.out.println("And what type of entertainment should there be?");
                     String userEventShow = bufferedReader.readLine();
-                    System.out.println("Finally, what will it cost?");
-                    int userEventPrice = Integer.parseInt(bufferedReader.readLine());
+
                     Event userEvent = new Event(userEventPerson, userEventMeal, userEventDrink, userEventShow);
                     allEvents.add(userEvent);
+
                     System.out.println("This Event sounds great!");
                     System.out.println("----------------");
                     System.out.println(userEvent.getPerson());
                     System.out.println(userEvent.getMeal());
                     System.out.println(userEvent.getDrink());
                     System.out.println(userEvent.getShow());
-//                    System.out.println(userEvent.getPrice());
+                    System.out.println("$" + userEvent.calcAll());
+                    System.out.println("----------------");
+
+                } else if (navigationChoice.equals("Add Event")) {
+                    System.out.println("What is your total budget for this Event?");
+                    String stringUserMaxBudget = bufferedReader.readLine();
+                    System.out.println("Great, Let's get started on your Event! First, how many people will be attending?");
+                    int userEventPerson = Integer.parseInt(bufferedReader.readLine());
+                    System.out.println("OK, and what type of food should there be?");
+                    String userEventMeal = bufferedReader.readLine();
+                    System.out.println("Awesome! What type of drinks should there be?");
+                    String userEventDrink = bufferedReader.readLine();
+                    System.out.println("And what type of entertainment should there be?");
+                    String userEventShow = bufferedReader.readLine();
+
+                    Event userEvent = new Event(userEventPerson, userEventMeal, userEventDrink, userEventShow);
+                    allEvents.add(userEvent);
+
+                    System.out.println("This Event sounds great!");
+                    System.out.println("----------------");
+                    System.out.println(stringUserMaxBudget);
+                    System.out.println(userEvent.getPerson());
+                    System.out.println(userEvent.getMeal());
+                    System.out.println(userEvent.getDrink());
+                    System.out.println(userEvent.getShow());
+                    System.out.println("$"+userEvent.calcAll());
+                    System.out.println("----------------");
                 } else if (navigationChoice.equals("Exit")){
                     System.out.println("Goodbye!");
                     programRunning = false;
