@@ -20,6 +20,13 @@ Follow directions in the console
 ### Technologies Used
 
 Intellij
+Java
+
+
+### Known Bugs
+
+Not a bug, but taking the $50 coupon is almost never worth it.
+
 
 
 # Specs
@@ -32,7 +39,7 @@ _*User Story:*_
 
 
 #### Links
-https://github.com/Maxna/event-planner.git
+https://github.com/Maxna/event-planner
 
 
 #### License
