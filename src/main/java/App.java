@@ -1,118 +1,119 @@
 import models.Event;
-
+import java.util.List;
+import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
-import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
 
         Event event = new Event();
 
-        List<Event> allEvents = new ArrayList<Event>();
+        ArrayList<Event> allEvents = new ArrayList<Event>();
         allEvents.add(event);
 
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-
         boolean programRunning = true;
-
         while (programRunning) {
-            System.out.println("Welcome to Java Event Planning. Please select one of the following options: All Events, Custom Event, Add Event, or Exit");
 
             try {
+                System.out.println("Welcome to Java Event Planning. Please type one of the following options: all events, custom event, or exit");
 
-                String navigationChoice = bufferedReader.readLine();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+                String navigationChoice = bufferedReader.readLine().toLowerCase();
 
-                if (navigationChoice.equals("All Events")) {
+                if (navigationChoice.equals("all events")) {
                     for (Event individualEvent : allEvents) {
                         System.out.println("----------------");
-                        System.out.println(individualEvent.getPerson());
-                        System.out.println(individualEvent.getMeal(""));
-                        System.out.println(individualEvent.getDrink(""));
-                        System.out.println(individualEvent.getShow(""));
-                        System.out.println("$" + individualEvent.calcAll());
+                        System.out.println(individualEvent.getPerson() + "people.");
+                        System.out.println("With " + individualEvent.getMeal());
+                        System.out.println("And " + individualEvent.getDrink());
+                        System.out.println("While enjoying the " + individualEvent.getShow());
                         System.out.println("----------------");
                     }
-                } else if (navigationChoice.equals("Custom Event")) {
-//                    boolean customRunning = true;
-//                    while (customRunning) {
-//                        System.out.println("Java Custom Event Planning: Go or Cancel");
 
-//                        try {
-
-//                            String customChoice = bufferedReader.readLine();
+                } else if (navigationChoice.equals("custom event")) {
 
                             System.out.println("Great, Let's get started on your Event! First, how many people will be attending?");
-                            int userEventPerson = Integer.parseInt(bufferedReader.readLine());
-                            event.getPerson();
+                            Integer userEventPerson = Integer.parseInt(bufferedReader.readLine());
+                            event.setPerson(userEventPerson);
+
                             System.out.println("OK, and what type of food should there be: Steak or Seafood");
-                            String userEventMeal = bufferedReader.readLine();
-                            if (userEventMeal.equals("Steak")) {
-                                event.getMeal(userEventMeal);
-                            } else if (userEventMeal.equals("Seafood")) {
-                                event.getMeal("Seafood");
+                            boolean selectFood = true;
+                            while (selectFood) {
+                                String userEventMeal = bufferedReader.readLine().toLowerCase();
+                                if (userEventMeal.equals("steak") || userEventMeal.equals("seafood")) {
+                                    event.setMeal(userEventMeal);
+                                    event.setPriceOfMeal();
+                                    selectFood = false;
+
+                                } else {
+                                    System.out.println("Please type one of the items listed.");
+                                }
+
                             }
                             System.out.println("Awesome! What type of drinks should there be: Beer or Wine");
-                            String userEventDrink = bufferedReader.readLine();
-                            if (userEventDrink.equals("Beer")) {
-                                event.getMeal("Beer");
-                            } else if (userEventDrink.equals("Wine")) {
-                                event.getMeal("Wine");
+                            boolean selectDrink = true;
+                            while (selectDrink) {
+                                String userEventDrink = bufferedReader.readLine().toLowerCase();
+                                if (userEventDrink.equals("beer") || userEventDrink.equals("wine")) {
+                                    event.setDrink(userEventDrink);
+                                    event.setPriceOfDrink();
+                                    selectDrink = false;
+
+                                } else {
+                                    System.out.println("Please type one of the items listed.");
+                                }
                             }
+
                             System.out.println("And what type of entertainment should there be: DJ or Concert");
-                            String userEventShow = bufferedReader.readLine();
-                            if (userEventShow.equals("DJ")) {
-                                event.getShow("DJ");
-                            } else if (userEventShow.equals("Concert")) {
-                                event.getShow("Concert");
+                            boolean selectShow = true;
+                            while (selectShow) {
+                                String userEventShow = bufferedReader.readLine().toLowerCase();
+                                if (userEventShow.equals("dj") || userEventShow.equals("concert")) {
+                                    event.setShow(userEventShow);
+                                    event.setPriceOfShow();
+                                    selectShow = false;
+
+                                } else  {
+                                    System.out.println("Please type one of the items listed.");
+
+                                }
                             }
+
+                            event.setCalcAll();
+                            int eventPrice = event.getCalcAll();
+
+
+                            System.out.println("Holiday Discount: Enter SUMMERFUN to take $50 off your purchase! Or Enter: PARTYDJ to receive a free DJ show with your purchase!");
+                            String deal = bufferedReader.readLine().toLowerCase();
+
+                            if (deal.equals("summerfun")) {
+                                System.out.println("----------------");
+                                System.out.println("All Right! Your purchase has been adjusted!");
+                                int eventDeal = (event.getCalcAll() - 50);
+                                System.out.println("Your new total is $" + eventDeal);
+//                                programRunning = false;
+
+                            } else if (deal.equals("partydj")) {
+                                System.out.println("----------------");
+                                System.out.println("All Right! Your purchase has been adjusted!");
+                                int eventDeal = (event.getCalcAll() - (event.getPriceOfShow()));
+                                System.out.println("Your new total is $" + eventDeal);
+//                                programRunning = false;
+
+                            } else {
+                                System.out.println("----------------");
+                                System.out.println("What, you don't like savings?");
+                                System.out.println("Your total is: " + event.getCalcAll());
+//                                programRunning = false;
+                            }
+
 
                             Event userEvent = new Event();
                             allEvents.add(userEvent);
 
-                            System.out.println("This Event sounds great!");
-                            System.out.println("----------------");
-                            System.out.println(userEvent.getPerson());
-                            System.out.println(userEvent.getMeal(""));
-                            System.out.println(userEvent.getDrink(""));
-                            System.out.println(userEvent.getShow(""));
-                            System.out.println("$" + userEvent.calcAll());
-                            System.out.println("----------------");
-
-
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-
-//                } else if (navigationChoice.equals("Add Event")) {
-//                    System.out.println("What is your total budget for this Event?");
-//                    String stringUserMaxBudget = bufferedReader.readLine();
-//                    System.out.println("Great, Let's get started on your Event! First, how many people will be attending?");
-//                    int userEventPerson = Integer.parseInt(bufferedReader.readLine());
-//                    System.out.println("OK, and what type of food should there be?");
-//                    String userEventMeal = bufferedReader.readLine();
-//                    System.out.println("Awesome! What type of drinks should there be?");
-//                    String userEventDrink = bufferedReader.readLine();
-//                    System.out.println("And what type of entertainment should there be?");
-//                    String userEventShow = bufferedReader.readLine();
-//
-//                    Event userEvent = new Event(userEventPerson, userEventMeal, userEventDrink, userEventShow);
-//                    allEvents.add(userEvent);
-//
-//                    System.out.println("This Event sounds great!");
-//                    System.out.println("----------------");
-//                    System.out.println(stringUserMaxBudget);
-//                    System.out.println(userEvent.getPerson());
-//                    System.out.println(userEvent.getMeal());
-//                    System.out.println(userEvent.getDrink());
-//                    System.out.println(userEvent.getShow());
-//                    System.out.println("$"+userEvent.calcAll());
-//                    System.out.println("----------------");
-
-                } else if (navigationChoice.equals("Exit")){
+                } else if (navigationChoice.equals("exit")){
                     System.out.println("Goodbye!");
                     programRunning = false;
                 } else {

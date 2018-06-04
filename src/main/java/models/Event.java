@@ -1,123 +1,142 @@
 package models;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Event {
 
     private int person;
     private String meal;
+    private int priceOfMeal;
     private String drink;
+    private int priceOfDrink;
     private String show;
+    private int priceOfShow;
+    private int calcAll;
 
 
-    public Event() {
-
+    public void setPerson(int persons) {
+        this.person = persons;
     }
 
     public int getPerson() {
-        this.person = person;
-        return this.person;
+
+        return person;
     }
 
-    public String getMeal(String meal) {
-
-        return this.meal;
+    public void setMeal(String meals) {
+        this.meal = meals;
     }
 
-    public String getDrink(String drink) {
+    public String getMeal() {
 
-        return this.drink;
+        return meal;
     }
 
-    public String getShow(String show) {
-
-        return this.show;
+    public void setDrink(String drinks) {
+        this.drink = drinks;
     }
 
-    public Integer getPriceOfMeal(String meal) {
+    public String getDrink() {
 
-        int priceOfMeal;
+        return drink;
+    }
 
-        if (meal.equals("Steak")) {
-            priceOfMeal = 2;
-        } else if (meal.equals("Seafood")) {
-            priceOfMeal = 5;
+    public void setShow(String shows) {
+        this.show = shows;
+    }
+
+    public String getShow() {
+
+        return show;
+    }
+
+    public void setPriceOfMeal() {
+
+
+        if (this.meal.equals("steak")) {
+            this.priceOfMeal = this.person * 2;
+        } else if (this.meal.equals("seafood")) {
+            this.priceOfMeal = this.person * 5;
         } else {
-            priceOfMeal = 0;
+            this.priceOfMeal = this.person * 0;
         }
+    }
 
+    public int getPriceOfMeal(){
         return priceOfMeal;
     }
 
-    public Integer getPriceOfDrink(String drink) {
+    public void setPriceOfDrink() {
 
-        int priceOfDrink;
 
-        if (drink.equals("Beer")) {
-            priceOfDrink = 2;
-        } else if (drink.equals("Wine")) {
-            priceOfDrink = 5;
+        if (this.drink.equals("beer")) {
+            this.priceOfDrink = this.person * 2;
+        } else if (this.drink.equals("wine")) {
+            this.priceOfDrink = this.person * 5;
         } else {
-            priceOfDrink = 0;
+            this.priceOfDrink = this.person * 0;
         }
+    }
 
+    public int getPriceOfDrink(){
         return priceOfDrink;
     }
 
-    public Integer getPriceOfShow(String show) {
+    public void setPriceOfShow() {
 
-        int priceOfShow;
 
-        if (show.equals("DJ")) {
-            priceOfShow = 50;
-        } else if (show.equals("Concert")) {
-            priceOfShow = 100;
+        if (this.show.equals("dj")) {
+            this.priceOfShow = 500;
+        } else if (this.show.equals("concert")) {
+            this.priceOfShow = 1000;
         } else {
-            priceOfShow = 0;
+            this.priceOfShow = this.person + 0;
         }
+    }
 
+    public int getPriceOfShow(){
         return priceOfShow;
     }
 
-    public int calcMeal() {
+//    public int calcMeal() {
+//
+//
+//        int people = this.person;
+//        int mealPrice = getPriceOfMeal("");
+//
+//        int calcMealPrice = ((people)*(mealPrice));
+//
+//        return calcMealPrice;
+//    }
+//
+//    public int calcDrink() {
+//
+//
+//        int people = this.person;
+//        int drinkPrice = getPriceOfDrink("");
+//
+//        int calcDrinkPrice = ((people)*(drinkPrice));
+//
+//        return calcDrinkPrice;
+//    }
+//
+//    public int calcShow() {
+//
+//
+//        int people = this.person;
+//        int showPrice = getPriceOfShow("");
+//
+//        int calcShowPrice = ((people)*(showPrice));
+//
+//        return calcShowPrice;
+//    }
 
+    public void setCalcAll() {
 
-        int people = this.person;
-        int mealPrice = getPriceOfMeal("");
+        this.calcAll = this.priceOfMeal + this.priceOfDrink + this.priceOfShow;
 
-        int calcMealPrice = ((people)*(mealPrice));
-
-        return calcMealPrice;
     }
 
-    public int calcDrink() {
-
-
-        int people = this.person;
-        int drinkPrice = getPriceOfDrink("");
-
-        int calcDrinkPrice = ((people)*(drinkPrice));
-
-        return calcDrinkPrice;
-    }
-
-    public int calcShow() {
-
-
-        int people = this.person;
-        int showPrice = getPriceOfShow("");
-
-        int calcShowPrice = ((people)*(showPrice));
-
-        return calcShowPrice;
-    }
-
-    public int calcAll() {
-
-        int calc = (calcShow()+calcDrink()+calcMeal());
-
-        return calc;
+    public int getCalcAll(){
+        return calcAll;
     }
 
 }
