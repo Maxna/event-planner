@@ -41,7 +41,59 @@ public class EventTest {
     }
 
     @Test
-    public void calc_sumOfAllCalcs_540() throws Exception {
+    public void setPriceOfMeal_setPriceOfSteak_20() throws Exception{
+        Event testEvent = new Event();
+        testEvent.setPerson(10);
+        testEvent.setMeal("steak");
+        testEvent.setPriceOfMeal();
+        assertEquals(20, testEvent.getPriceOfMeal());
+    }
+
+    @Test
+    public void setPriceOfMeal_setPriceOfSeafood_50() throws Exception{
+        Event testEvent = new Event();
+        testEvent.setPerson(10);
+        testEvent.setMeal("seafood");
+        testEvent.setPriceOfMeal();
+        assertEquals(50, testEvent.getPriceOfMeal());
+    }
+
+    @Test
+    public void setPriceOfDrink_setPriceOfBeer_20() throws Exception{
+        Event testEvent = new Event();
+        testEvent.setPerson(10);
+        testEvent.setDrink("beer");
+        testEvent.setPriceOfDrink();
+        assertEquals(20, testEvent.getPriceOfDrink());
+    }
+
+    @Test
+    public void setPriceOfDrink_setPriceOfWine_50() throws Exception{
+        Event testEvent = new Event();
+        testEvent.setPerson(10);
+        testEvent.setDrink("wine");
+        testEvent.setPriceOfDrink();
+        assertEquals(50, testEvent.getPriceOfDrink());
+    }
+
+    @Test
+    public void setPriceOfShow_setPriceOfDj_500() throws Exception{
+        Event testEvent = new Event();
+        testEvent.setShow("dj");
+        testEvent.setPriceOfShow();
+        assertEquals(500, testEvent.getPriceOfShow());
+    }
+
+    @Test
+    public void setPriceOfShow_setPriceOfConcert_1000() throws Exception{
+        Event testEvent = new Event();
+        testEvent.setShow("concert");
+        testEvent.setPriceOfShow();
+        assertEquals(1000, testEvent.getPriceOfShow());
+    }
+
+    @Test
+    public void total_priceTotal_540() throws Exception {
         Event testEvent = new Event();
         testEvent.setPerson(10);
         testEvent.setMeal("steak");
@@ -50,7 +102,6 @@ public class EventTest {
         testEvent.setPriceOfDrink();
         testEvent.setShow("dj");
         testEvent.setPriceOfShow();
-        testEvent.setCalcAll();
-        assertEquals(540, testEvent.getCalcAll());
+        assertEquals(540, testEvent.priceTotal());
     }
 }

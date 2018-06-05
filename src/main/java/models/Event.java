@@ -9,8 +9,6 @@ public class Event {
     private int priceOfDrink;
     private String show;
     private int priceOfShow;
-    private int calcAll;
-
 
     public void setPerson(int persons) {
         this.person = persons;
@@ -55,8 +53,6 @@ public class Event {
             this.priceOfMeal = this.person * 2;
         } else if (this.meal.equals("seafood")) {
             this.priceOfMeal = this.person * 5;
-        } else {
-            this.priceOfMeal = this.person * 0;
         }
     }
 
@@ -71,8 +67,6 @@ public class Event {
             this.priceOfDrink = this.person * 2;
         } else if (this.drink.equals("wine")) {
             this.priceOfDrink = this.person * 5;
-        } else {
-            this.priceOfDrink = this.person * 0;
         }
     }
 
@@ -87,8 +81,6 @@ public class Event {
             this.priceOfShow = 500;
         } else if (this.show.equals("concert")) {
             this.priceOfShow = 1000;
-        } else {
-            this.priceOfShow = this.person + 0;
         }
     }
 
@@ -96,47 +88,10 @@ public class Event {
         return priceOfShow;
     }
 
-//    public int calcMeal() {
-//
-//
-//        int people = this.person;
-//        int mealPrice = getPriceOfMeal("");
-//
-//        int calcMealPrice = ((people)*(mealPrice));
-//
-//        return calcMealPrice;
-//    }
-//
-//    public int calcDrink() {
-//
-//
-//        int people = this.person;
-//        int drinkPrice = getPriceOfDrink("");
-//
-//        int calcDrinkPrice = ((people)*(drinkPrice));
-//
-//        return calcDrinkPrice;
-//    }
-//
-//    public int calcShow() {
-//
-//
-//        int people = this.person;
-//        int showPrice = getPriceOfShow("");
-//
-//        int calcShowPrice = ((people)*(showPrice));
-//
-//        return calcShowPrice;
-//    }
+    public int priceTotal() {
 
-    public void setCalcAll() {
+        Integer total = this.priceOfMeal + this.priceOfDrink + this.priceOfShow;
 
-        this.calcAll = this.priceOfMeal + this.priceOfDrink + this.priceOfShow;
-
+        return total;
     }
-
-    public int getCalcAll(){
-        return calcAll;
-    }
-
 }
